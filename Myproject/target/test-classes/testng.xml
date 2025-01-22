@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="Click on profile section">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="login"></include>
+					<include name="profile"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Check the URL OF THE PAGE">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="login"></include>
+					<include name="url"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Click on subsription plan">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="login"></include>
+					<include name="subscription"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Search on a video">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="login"></include>
+					<include name="searchvideo"></include>
+				</methods>
+			</class>
+		</classes>
+		<test name="Occassor">
+			<classes>
+				<class name="Selinium.Occassor">
+					<methods>
+						<include name="Loginonoccasor"></include>
+
+
+					</methods>
+				</class>
+			</classes>
+
+
+		</test>
+
+	</test>
+</suite>
+

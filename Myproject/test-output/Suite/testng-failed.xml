@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="login (failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="login"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- login (failed) -->
+  <test thread-count="5" name="login with Wrong Creditanals  (failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="loginWithWrongCreditanals"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- login with Wrong Creditanals  (failed) -->
+  <test thread-count="5" name="searchVideo(failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="searchVideo"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- searchVideo(failed) -->
+  <test thread-count="5" name="watchvideo(failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="watchvideo"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- watchvideo(failed) -->
+  <test thread-count="5" name="subscription(failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="subscription"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- subscription(failed) -->
+  <test thread-count="5" name="checkurl(failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="url"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- checkurl(failed) -->
+  <test thread-count="5" name="Updateonprofile(failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="url"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- Updateonprofile(failed) -->
+  <test thread-count="5" name="clickonfooterbutton(failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="clickonfooterbutton"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- clickonfooterbutton(failed) -->
+  <test thread-count="5" name="withoutloginDetaiedpage(failed)">
+    <classes>
+      <class name="Selinium.AaryaDigital">
+        <methods>
+          <include name="withoutloginDetaiedpage"/>
+        </methods>
+      </class> <!-- Selinium.AaryaDigital -->
+    </classes>
+  </test> <!-- withoutloginDetaiedpage(failed) -->
+</suite> <!-- Failed suite [Suite] -->
