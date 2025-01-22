@@ -448,7 +448,7 @@ public class AaryaDigital {
 		
 
 		clickonFooterButton.click(); // Attempt the click
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 
 	}
