@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-
-
 	<test name="login ">
 		<classes>
 			<class name="Selinium.AaryaDigital">
@@ -75,7 +73,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="withoutloginDetaiedpage">
+	<test name="withoutloginDetailedpage">
 		<classes>
 			<class name="Selinium.AaryaDigital">
 				<methods>
@@ -84,7 +82,22 @@
 			</class>
 		</classes>
 	</test>
-
-
-
+	<test name="loginwithmailid">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="loginwithmailid" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="logout">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="logout" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>

@@ -5,7 +5,7 @@
     <classes>
       <class name="Selinium.AaryaDigital">
         <methods>
-          <include name="WithoutLoginUserClickOnFooterButtonRedirectToHomepage"/>
+          <include name="clickon_viewall"/>
         </methods>
       </class> <!-- Selinium.AaryaDigital -->
     </classes>
