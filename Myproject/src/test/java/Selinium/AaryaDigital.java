@@ -485,11 +485,17 @@ public class AaryaDigital {
 
 		// Click on the footer button
 		WebElement clickonFooterButton = driver.findElement(By.xpath("//img[@class='sc-dcJsrY fyeCh']"));
-
 		Actions action = new Actions(driver);
 		action.moveToElement(clickonFooterButton);
 		clickonFooterButton.click();
 		driver.quit();
+
+		
+
+		clickonFooterButton.click(); // Attempt the click
+		Thread.sleep(2000);
+		
+
 
 	}
 
