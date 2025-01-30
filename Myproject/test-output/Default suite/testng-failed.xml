@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selinium.AaryaDigital">
+      <class name="Selinium.TestDependency">
         <methods>
-          <include name="clickon_viewall"/>
+          <include name="Cancelshipment"/>
+          <include name="Trackshipment"/>
+          <include name="createshipment"/>
         </methods>
-      </class> <!-- Selinium.AaryaDigital -->
+      </class> <!-- Selinium.TestDependency -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
