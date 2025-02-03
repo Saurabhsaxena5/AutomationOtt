@@ -21,9 +21,6 @@ import org.testng.annotations.Test;
 
 public class AaryaDigital {
 	WebDriver driver;
-	
-	
-	
 
 	@Test(groups = { "smoke" })
 	public void login() throws InterruptedException {
@@ -50,7 +47,6 @@ public class AaryaDigital {
 		Thread.sleep(6000);
 
 		driver.quit();
-		
 
 	}
 
@@ -79,8 +75,6 @@ public class AaryaDigital {
 		submit.click();
 		Thread.sleep(4000);
 
-		
-
 		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
 
 		clickonprofile.click();
@@ -90,20 +84,20 @@ public class AaryaDigital {
 
 		clickprofile.click();
 		Thread.sleep(4000);
-		
+
 		WebElement clickoneditbutton = driver.findElement(By.xpath("//button[@class=\"edit-button\"]"));
 		clickoneditbutton.click();
-		
-		  WebElement clearData = driver.findElement(By.xpath("//input[@class=\"input-name\"]"));
-		  Thread.sleep(4000);
-		  clearData.clear();
-		  Thread.sleep(4000);
-		  clearData.sendKeys("Hey this update message");
-		  Thread.sleep(4000);
-		  
-		  driver.findElement(By.xpath("//button[@class=\"edit-button\"]")).click();
-		  Thread.sleep(4000);
-		  driver.quit();
+
+		WebElement clearData = driver.findElement(By.xpath("//input[@class=\"input-name\"]"));
+		Thread.sleep(4000);
+		clearData.clear();
+		Thread.sleep(4000);
+		clearData.sendKeys("Hey this update message");
+		Thread.sleep(4000);
+
+		driver.findElement(By.xpath("//button[@class=\"edit-button\"]")).click();
+		Thread.sleep(4000);
+		driver.quit();
 
 	}
 
@@ -168,23 +162,17 @@ public class AaryaDigital {
 		WebElement clickonsubscription = driver.findElement(By.xpath("//img[@class=\"subscription-logo\"]"));
 		clickonsubscription.click();
 		Thread.sleep(2000);
-		
-		
+
 		WebElement element = driver.findElement(By.xpath("//div[@class=\"alert alert-success\"]"));
 		if (element.isDisplayed() && element.isEnabled()) {
-		    element.click();
-		    
-		    System.out.println("The user have  a subscription");
-		  
-		    
-		    
-		}else {
+			element.click();
+
+			System.out.println("The user have  a subscription");
+
+		} else {
 			System.out.println("User not buy a subscription ");
 		}
-		
-		
-		
-		
+
 		Thread.sleep(2000);
 
 		driver.quit();
@@ -225,8 +213,7 @@ public class AaryaDigital {
 		Thread.sleep(4000);
 
 		// Locate the search input and enter the search term
-		WebElement enter = driver
-				.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
+		WebElement enter = driver.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
 		enter.sendKeys("Meri jaan Tiranga");
 		Thread.sleep(4000);
 
@@ -309,7 +296,8 @@ public class AaryaDigital {
 		clickOnSearch.click();
 		Thread.sleep(2000);
 
-		WebElement enterSearch = driver.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
+		WebElement enterSearch = driver
+				.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
 		enterSearch.sendKeys("Meri jaan Tiranga");
 		Thread.sleep(2000);
 		enterSearch.sendKeys(Keys.ENTER);
@@ -369,7 +357,6 @@ public class AaryaDigital {
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-	
 
 		WebElement TermsAndCondition = driver.findElement(By.xpath("//span[normalize-space()='Terms and Conditions']"));
 
@@ -446,7 +433,7 @@ public class AaryaDigital {
 	}
 
 	@Test()
-	public void WithoutLoginUserClickOnFooterButtonRedirectToHomepage() throws InterruptedException {
+		public void WithoutLoginUserClickOnFooterButtonRedirectToHomepage() throws InterruptedException {
 		// Set up ChromeDriver
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -478,8 +465,7 @@ public class AaryaDigital {
 		Thread.sleep(2000);
 
 		// Click on the video
-		WebElement clickonVideo = driver
-				.findElement(By.xpath("//div[@class='scroll-container']//div[@id='custom-div-2']"));
+		WebElement clickonVideo = driver.findElement(By.xpath("//div[@class='scroll-container']//div[@id='custom-div-2']"));
 		clickonVideo.click();
 		Thread.sleep(2000);
 
@@ -490,12 +476,8 @@ public class AaryaDigital {
 		clickonFooterButton.click();
 		driver.quit();
 
-		
-
 		clickonFooterButton.click(); // Attempt the click
 		Thread.sleep(2000);
-		
-
 
 	}
 
@@ -544,10 +526,10 @@ public class AaryaDigital {
 		driver.quit();
 
 	}
-	
+
 	@Test
 	public void logout() throws InterruptedException {
-		
+
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
@@ -569,31 +551,27 @@ public class AaryaDigital {
 		WebElement submit = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
 		submit.click();
 		Thread.sleep(6000);
-		
 
 		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
 
 		clickonprofile.click();
 		Thread.sleep(3000);
-		
+
 		WebElement clickonlogout = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]//div"));
 		clickonlogout.click();
 		WebElement logout = driver.findElement(By.xpath("//button[@class=\"removebtn\"]"));
 		logout.click();
-		if(clickonlogin.equals(clickonlogin))
-		{
+		if (clickonlogin.equals(clickonlogin)) {
 			System.out.println("Code is passed");
-		}else
-		{
+		} else {
 			System.out.println("This test case is failed");
 		}
-		
+
 		driver.quit();
-		
-		
+
 	}
-	
-	@Test(groups= {"Smoke"})
+
+	@Test(groups = { "Smoke" })
 	public void buyrent_video() throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -624,19 +602,25 @@ public class AaryaDigital {
 		WebElement clickonrentbutton = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]//a[1]"));
 		clickonrentbutton.click();
 
-		WebElement checkdataavailable = driver.findElement(By.xpath("//div[@class=\"view-screen\"]"));
-		if (checkdataavailable.isDisplayed()) {
-			System.out.println("Data is visible");
-		} else {
-			System.out.println("Data is not visible");
-		}
+	
+		WebElement clickonvideo = driver.findElement(By.xpath("//div[@class=\"card movie-card\"]"));
 
-		WebElement clickonvideo = driver.findElement(By.xpath("//div[@class=\"card movie-card\"]//img[@alt=\"Rajangam\"]"));
 		clickonvideo.click();
+		
+		
+		JavascriptExecutor jsescroll = (JavascriptExecutor) driver;
+		jsescroll.executeScript("window.scrollBy(0,300)");
+		
+		WebElement clickonwatchnow = driver.findElement(By.xpath("//button[@class=\"sc-gFqAkR goYXOV\"]]"));
+		clickonwatchnow.click();
+		
+	
+
+		driver.quit();
 	}
+
 	@Test
-	public void clickon_viewall() throws InterruptedException
-	{
+	public void clickon_viewall() throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
@@ -658,19 +642,38 @@ public class AaryaDigital {
 		WebElement submit = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
 		submit.click();
 		Thread.sleep(6000);
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollTo(0, 300);");
+		JavascriptExecutor jsescroll = (JavascriptExecutor) driver;
+		jsescroll.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(6000);
-		
-	
-		
-		
-		
-		
 
 	}
+	
+	
+	
+	public void email() throws InterruptedException {
+		
+		WebDriver driver = new ChromeDriver();
+		WebElement clickonlogin = driver.findElement(By.xpath("//a[@class=\"logButton\"]"));
+		clickonlogin.click();
+		Thread.sleep(4000);
 
-	
-	
-	
+		WebElement clickonmail = driver.findElement(By.xpath("//div[@class=\"signin-form\"]//button[2]"));
+		clickonmail.click();
+		Thread.sleep(4000);
+
+		WebElement enternumber = driver.findElement(By.xpath("//input[@placeholder=\"Enter Email\"]"));
+		enternumber.sendKeys("9557455449@gmail");
+		Thread.sleep(4000);
+
+		WebElement clickonotp = driver.findElement(By.xpath("//button[normalize-space()='Send OTP']"));
+		clickonotp.click();
+		Thread.sleep(4000);
+
+		// Check error message
+		String actualmessage = driver.findElement(By.xpath("//span[@class=\"error-message\"]")).getText();
+		String expectedmessage = "Enter a valid email ";
+
+		assertEquals(actualmessage, expectedmessage);
+	}
+
 }

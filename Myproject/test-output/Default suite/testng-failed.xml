@@ -3,11 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selinium.AaryaDigital">
+      <class name="Selinium.OrangeHRM">
         <methods>
-          <include name="clickon_viewall"/>
+          <include name="signIn"/>
+          <include name="enterAccountInfo"/>
+          <include name="closeBrowser"/>
+          <include name="setProperties"/>
         </methods>
-      </class> <!-- Selinium.AaryaDigital -->
+      </class> <!-- Selinium.OrangeHRM -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

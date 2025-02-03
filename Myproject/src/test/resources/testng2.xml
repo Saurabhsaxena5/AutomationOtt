@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="clickfilterbutton">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="clickfilterbutton" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="clickonprofile">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="clickprofile" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="verifyurl">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="verifyurl" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="subscription">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="subscription" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="searchvideo">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="searchvideo" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="wrongcreditanals ">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="wrongcreditanals" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="watchvideo ">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="watchvideo" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="footerbutton ">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="footerbutton" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="withoutloginDetailedpage ">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="withoutloginDetailedpage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="mailId ">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="mailId" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="logout ">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="logout" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Buyrentvideo ">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="Buyrentvideo" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

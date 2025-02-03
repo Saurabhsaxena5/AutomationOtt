@@ -100,4 +100,14 @@
 			</class>
 		</classes>
 	</test>
+	<test name="clickfilterbutton ">
+		<classes>
+			<class name="Selinium.AaryaaDigital_TestcaseForEmail">
+				<methods>
+					<include name="clickonfilter" />
+					<include name="clickfilterbutton" />
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>

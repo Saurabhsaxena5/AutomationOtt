@@ -1,13 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="subscription(failed)">
     <classes>
-      <class name="Selinium.AaryaDigital">
+      <class name="Selinium.SeliniumXA">
         <methods>
-          <include name="clickon_viewall"/>
+          <include name="quit"/>
+          <include name="subscription"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- Selinium.AaryaDigital -->
+      </class> <!-- Selinium.SeliniumXA -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- subscription(failed) -->
+  <test thread-count="5" name="footerbutton (failed)">
+    <classes>
+      <class name="Selinium.SeliniumXA">
+        <methods>
+          <include name="quit"/>
+          <include name="footerbutton"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Selinium.SeliniumXA -->
+    </classes>
+  </test> <!-- footerbutton (failed) -->
+  <test thread-count="5" name="withoutloginDetailedpage (failed)">
+    <classes>
+      <class name="Selinium.SeliniumXA">
+        <methods>
+          <include name="withoutloginDetailedpage"/>
+          <include name="quit"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Selinium.SeliniumXA -->
+    </classes>
+  </test> <!-- withoutloginDetailedpage (failed) -->
+  <test thread-count="5" name="logout (failed)">
+    <classes>
+      <class name="Selinium.SeliniumXA">
+        <methods>
+          <include name="logout"/>
+          <include name="quit"/>
+          <include name="setup"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- Selinium.SeliniumXA -->
+    </classes>
+  </test> <!-- logout (failed) -->
+  <test thread-count="5" name="Buyrentvideo (failed)">
+    <classes>
+      <class name="Selinium.SeliniumXA">
+        <methods>
+          <include name="Buyrentvideo"/>
+          <include name="quit"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Selinium.SeliniumXA -->
+    </classes>
+  </test> <!-- Buyrentvideo (failed) -->
+</suite> <!-- Failed suite [Suite] -->
