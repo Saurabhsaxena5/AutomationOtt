@@ -645,8 +645,6 @@ public class AaryaDigital {
 		JavascriptExecutor jsescroll = (JavascriptExecutor) driver;
 		jsescroll.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(6000);
-<<<<<<< HEAD
-=======
 
 		WebElement clickonviewall = driver.findElement(By.xpath("//a[@href=\"/View/home/trending-movies/311\"]"));
 
@@ -665,9 +663,8 @@ public class AaryaDigital {
 		}
 		
 		driver.quit();
->>>>>>> 3289e6df09a8412cb99820874e0a887fbed24386
 
-	}
+}
 	
 	
 	
