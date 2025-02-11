@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selinium.Practice">
+      <class name="Dataprovider.practice1">
         <methods>
-          <include name="Testlogin" invocation-numbers="1"/>
+          <include name="TestData5"/>
         </methods>
-      </class> <!-- Selinium.Practice -->
+      </class> <!-- Dataprovider.practice1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
