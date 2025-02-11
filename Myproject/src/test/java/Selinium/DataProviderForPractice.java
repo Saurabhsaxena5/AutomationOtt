@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Practice {
+public class DataProviderForPractice {
 
 	@Test(dataProvider = "logindata")
 	public void Testlogin(String username, String password) throws InterruptedException {
@@ -24,20 +24,24 @@ public class Practice {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//span[@class=\"oxd-userdropdown-tab\"]")).isDisplayed();
 		driver.quit();
-		
-		
+
 	}
-
-	@DataProvider(name = "logindata")
-	public Object[][] loginData() {
-
-		Object[][] data = new Object[2][2];
-		data[0][0] = "Admin";
-		data[0][1] = "admin123";
-
-		data[1][0] = "Admin123";
-		data[1][1] = "test123";
+	
+	@DataProvider
+	public Object[][] logindata(){
+		
+		Object[][] data=new Object[2][2];
+		data[0][0]="admin123";
+		data[0][1]="admin";
+		data[1][0]="admin";
+		data[0][1]="admin";
 		return data;
-
 	}
+	
+
+	
 }
+
+
+
+
