@@ -213,7 +213,8 @@ public class AaryaDigital {
 		Thread.sleep(4000);
 
 		// Locate the search input and enter the search term
-		WebElement enter = driver.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
+		WebElement enter = driver
+				.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
 		enter.sendKeys("Meri jaan Tiranga");
 		Thread.sleep(4000);
 
@@ -433,7 +434,7 @@ public class AaryaDigital {
 	}
 
 	@Test()
-		public void WithoutLoginUserClickOnFooterButtonRedirectToHomepage() throws InterruptedException {
+	public void WithoutLoginUserClickOnFooterButtonRedirectToHomepage() throws InterruptedException {
 		// Set up ChromeDriver
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -465,7 +466,8 @@ public class AaryaDigital {
 		Thread.sleep(2000);
 
 		// Click on the video
-		WebElement clickonVideo = driver.findElement(By.xpath("//div[@class='scroll-container']//div[@id='custom-div-2']"));
+		WebElement clickonVideo = driver
+				.findElement(By.xpath("//div[@class='scroll-container']//div[@id='custom-div-2']"));
 		clickonVideo.click();
 		Thread.sleep(2000);
 
@@ -602,19 +604,15 @@ public class AaryaDigital {
 		WebElement clickonrentbutton = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]//a[1]"));
 		clickonrentbutton.click();
 
-	
 		WebElement clickonvideo = driver.findElement(By.xpath("//div[@class=\"card movie-card\"]"));
 
 		clickonvideo.click();
-		
-		
+
 		JavascriptExecutor jsescroll = (JavascriptExecutor) driver;
 		jsescroll.executeScript("window.scrollBy(0,300)");
-		
+
 		WebElement clickonwatchnow = driver.findElement(By.xpath("//button[@class=\"sc-gFqAkR goYXOV\"]]"));
 		clickonwatchnow.click();
-		
-	
 
 		driver.quit();
 	}
@@ -649,27 +647,24 @@ public class AaryaDigital {
 		WebElement clickonviewall = driver.findElement(By.xpath("//a[@href=\"/View/home/trending-movies/311\"]"));
 
 		clickonviewall.click();
-		
+
 		String checkviewall = driver.getCurrentUrl();
-		String expectedviewlallurl="https://aaryaadigital.com/View/home/trending-movies/311";
-		
-		if(checkviewall.equals(expectedviewlallurl))
-		{
+		String expectedviewlallurl = "https://aaryaadigital.com/View/home/trending-movies/311";
+
+		if (checkviewall.equals(expectedviewlallurl)) {
 			System.err.println("expected url or actual url same.");
-			
-		}
-		else {
+
+		} else {
 			System.out.println("Not Both same url");
 		}
-		
+
 		driver.quit();
 
-}
-	
-	
-	
+	}
+
+	@Test
 	public void email() throws InterruptedException {
-		
+
 		WebDriver driver = new ChromeDriver();
 		WebElement clickonlogin = driver.findElement(By.xpath("//a[@class=\"logButton\"]"));
 		clickonlogin.click();
@@ -694,44 +689,39 @@ public class AaryaDigital {
 		assertEquals(actualmessage, expectedmessage);
 	}
 
-<<<<<<< HEAD
-=======
 	@Test
-	public void couponcode_check()throws InterruptedException
-	{
-		 
-			ChromeDriver driver = new ChromeDriver();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	public void couponcode_check() throws InterruptedException {
 
-			driver.get("https://aaryaadigital.com/");
-			driver.manage().window().maximize();
-			Thread.sleep(2000);
-			
-			WebElement clcikonsubscription = driver.findElement(By.xpath("//img[@class=\"subscription-logo\"]"));
-			clcikonsubscription.click();
-			
-	
-			WebElement clickon2subscription = driver.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
-			clickon2subscription.click();
-			WebElement enterphoneNumber = driver.findElement(By.xpath("//input[@id=\"mobile\"]"));
-			enterphoneNumber.sendKeys("8920689888");
-			WebElement clickOTP = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
-			clickOTP.click();
-			Thread.sleep(4000);
-			WebElement Otp = driver.findElement(By.xpath("//input[@name=\"otp\"]"));
-			Otp.sendKeys("1234");
-			WebElement submit = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
-			submit.click();
-			Thread.sleep(6000);
-			
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-			WebElement clcikonsubscriptionpage = driver.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
-			clcikonsubscriptionpage.click();
-			
-			WebElement entercouponcode = driver.findElement(By.xpath("//input[@placeholder=\"Enter coupon code...\"]"));
-			entercouponcode.sendKeys("pmHn7A");
+		driver.get("https://aaryaadigital.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+
+		WebElement clcikonsubscription = driver.findElement(By.xpath("//img[@class=\"subscription-logo\"]"));
+		clcikonsubscription.click();
+
+		WebElement clickon2subscription = driver
+				.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
+		clickon2subscription.click();
+		WebElement enterphoneNumber = driver.findElement(By.xpath("//input[@id=\"mobile\"]"));
+		enterphoneNumber.sendKeys("8920689888");
+		WebElement clickOTP = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
+		clickOTP.click();
+		Thread.sleep(4000);
+		WebElement Otp = driver.findElement(By.xpath("//input[@name=\"otp\"]"));
+		Otp.sendKeys("1234");
+		WebElement submit = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
+		submit.click();
+		Thread.sleep(6000);
+
+		WebElement clcikonsubscriptionpage = driver
+				.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
+		clcikonsubscriptionpage.click();
+
+		WebElement entercouponcode = driver.findElement(By.xpath("//input[@placeholder=\"Enter coupon code...\"]"));
+		entercouponcode.sendKeys("pmHn7A");
 	}
-	
-	
->>>>>>> 3289e6df09a8412cb99820874e0a887fbed24386
+
 }
