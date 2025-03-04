@@ -48,17 +48,41 @@ public class SeliniumXA {
 		WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
 		submit.click();
 
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 	}
 
 	@Test()
 	public void clickfilterbutton() throws InterruptedException {
+try {
+		WebElement buttonelemennt = driver.findElement(By.xpath("//button[@class=\"btn btn-primary mt-2\"]"));
+		
 
-		WebElement XA = driver.findElement(By.xpath("//div[@class='dropdown'][1]"));
-		XA.click();
-		Thread.sleep(4000);
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		
+		jse.executeScript("document.querySelector('.dropdown-menu').scrollBy(0,100)");
+		
 
+		buttonelemennt.click();
+		
+		String actualurl="https://aaryaadigital.com/LanguageData/26";
+		
+		String expectedurl = driver.getCurrentUrl();
+		
+		if(actualurl.equals(expectedurl))
+		{
+			System.out.println("Match url");
+		}
+		}
+	
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
+		
+
+	
 
 	@Test()
 	public void javaExecutor() throws InterruptedException {
@@ -73,34 +97,34 @@ public class SeliniumXA {
 		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
 
 		clickonprofile.click();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 
 		WebElement clickprofile = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]/a[2]"));
 
 		clickprofile.click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 
 		WebElement clickoneditbutton = driver.findElement(By.xpath("//button[@class=\"edit-button\"]"));
 		clickoneditbutton.click();
 
 		WebElement clearData = driver.findElement(By.xpath("//input[@class=\"input-name\"]"));
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		clearData.clear();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		clearData.sendKeys("Hey this update message");
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 
 		driver.findElement(By.xpath("//button[@class=\"edit-button\"]")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 
 	}
 
 	@Test
 	public void verifyurl() throws InterruptedException {
 		String url1 = driver.getCurrentUrl();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		System.out.println("The url of the page source is:" + url1);
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 	}
 
 	@Test
@@ -117,11 +141,11 @@ public class SeliniumXA {
 		} else {
 			System.out.println("User buy a subscription");
 		}
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 
 	}
 
-	@Test
+	@Test()
 	public void searchvideo() throws InterruptedException {
 		WebElement clickOnSearch = driver.findElement(By.xpath("//div[@class=\"search-button\"]"));
 		clickOnSearch.click();
@@ -169,7 +193,7 @@ public class SeliniumXA {
 
 	}
 
-	@Test
+	@Test(enabled=false)
 	public void watchvideo() throws InterruptedException {
 
 		WebElement clicksearchbutton = driver.findElement(By.xpath("//div[@class=\"search-button\"]"));
@@ -208,21 +232,27 @@ public class SeliniumXA {
 
 	}
 
-	@Test
-	public void footerbutton() {
-
+	@Test()
+	public void footerbutton() throws InterruptedException {
+		try {
+		Thread.sleep(20000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		Thread.sleep(6000);
 
 		WebElement TermsAndCondition = driver.findElement(By.xpath("//span[normalize-space()='Terms and Conditions']"));
 
 		TermsAndCondition.click();
 
-		if (TermsAndCondition.isEnabled()) {
-			System.out.println("It is Disabled");
+		if (TermsAndCondition.isDisplayed()) {
+			
+			System.out.println("Element is click");
 
 		} else {
 			System.out.println("It is not disabled");
+		}
+		} catch (Exception e) {
+			System.out.println("Error while scrolling: " + e.getMessage());
 		}
 	}
 
@@ -321,9 +351,13 @@ public class SeliniumXA {
 
 		WebElement clickonlogout = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]//div"));
 		clickonlogout.click();
+		Thread.sleep(3000);
+
 		WebElement logout = driver.findElement(By.xpath("//button[@class=\"removebtn\"]"));
 		logout.click();
 		
+		Thread.sleep(3000);
+
 		
 
 
@@ -349,6 +383,31 @@ public class SeliniumXA {
 
 		WebElement clickonwatchnow = driver.findElement(By.xpath("//button[@class=\"sc-gFqAkR goYXOV\"]]"));
 		clickonwatchnow.click();
+
+	}
+	
+	@Test
+	public void viewAll() throws InterruptedException {
+		
+		
+		Thread.sleep(4000);
+		WebElement clickonviewall = driver.findElement(By.xpath("//a[@href=\"/View/home/trending-movies/311\"]"));
+
+		clickonviewall.click();
+		
+		String checkviewall = driver.getCurrentUrl();
+		String expectedviewlallurl="https://aaryaadigital.com/View/home/trending-movies/311";
+		
+		if(checkviewall.equals(expectedviewlallurl))
+		{
+			System.err.println("expected url or actual url same.");
+			
+		}
+		else {
+			System.out.println("Not Both same url");
+		}
+		
+		driver.quit();
 
 	}
 

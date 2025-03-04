@@ -12,28 +12,6 @@
       </class> <!-- Selinium.SeliniumXA -->
     </classes>
   </test> <!-- subscription(failed) -->
-  <test thread-count="5" name="footerbutton (failed)">
-    <classes>
-      <class name="Selinium.SeliniumXA">
-        <methods>
-          <include name="quit"/>
-          <include name="footerbutton"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- Selinium.SeliniumXA -->
-    </classes>
-  </test> <!-- footerbutton (failed) -->
-  <test thread-count="5" name="withoutloginDetailedpage (failed)">
-    <classes>
-      <class name="Selinium.SeliniumXA">
-        <methods>
-          <include name="withoutloginDetailedpage"/>
-          <include name="quit"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- Selinium.SeliniumXA -->
-    </classes>
-  </test> <!-- withoutloginDetailedpage (failed) -->
   <test thread-count="5" name="logout (failed)">
     <classes>
       <class name="Selinium.SeliniumXA">
@@ -41,12 +19,11 @@
           <include name="logout"/>
           <include name="quit"/>
           <include name="setup"/>
-          <include name="login"/>
         </methods>
       </class> <!-- Selinium.SeliniumXA -->
     </classes>
   </test> <!-- logout (failed) -->
-  <test thread-count="5" name="Buyrentvideo (failed)">
+  <test thread-count="5" name="Buyrentvideo  (failed)">
     <classes>
       <class name="Selinium.SeliniumXA">
         <methods>
@@ -56,5 +33,16 @@
         </methods>
       </class> <!-- Selinium.SeliniumXA -->
     </classes>
-  </test> <!-- Buyrentvideo (failed) -->
+  </test> <!-- Buyrentvideo  (failed) -->
+  <test thread-count="5" name="Click on ViewAll  (failed)">
+    <classes>
+      <class name="Selinium.SeliniumXA">
+        <methods>
+          <include name="quit"/>
+          <include name="setup"/>
+          <include name="viewAll"/>
+        </methods>
+      </class> <!-- Selinium.SeliniumXA -->
+    </classes>
+  </test> <!-- Click on ViewAll  (failed) -->
 </suite> <!-- Failed suite [Suite] -->

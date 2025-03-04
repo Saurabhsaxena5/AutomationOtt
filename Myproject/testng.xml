@@ -102,7 +102,7 @@
 	</test>
 	<test name="clickfilterbutton ">
 		<classes>
-			<class name="Selinium.AaryaaDigital_TestcaseForEmail">
+			<class name="Selinium.AaryaDigital">
 				<methods>
 					<include name="clickonfilter" />
 					<include name="clickfilterbutton" />
