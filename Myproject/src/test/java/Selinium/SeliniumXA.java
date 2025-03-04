@@ -11,7 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class SeliniumXA {
@@ -19,7 +21,7 @@ public class SeliniumXA {
 	WebDriver driver;
 	WebDriverWait wait;
 
-	@BeforeMethod
+	@BeforeMethod()
 	public void setup() throws InterruptedException {
 		// Initialize WebDriver
 		driver = new ChromeDriver();
@@ -29,7 +31,7 @@ public class SeliniumXA {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
 	}
 
-	@Test()
+	@Test
 	public void login() throws InterruptedException {
 		WebElement clickonlogin = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='logButton']")));
@@ -51,40 +53,32 @@ public class SeliniumXA {
 		Thread.sleep(6000);
 	}
 
-	@Test()
+	@Test
 	public void clickfilterbutton() throws InterruptedException {
-try {
-		WebElement buttonelemennt = driver.findElement(By.xpath("//button[@class=\"btn btn-primary mt-2\"]"));
-		
+		try {
+			WebElement buttonelemennt = driver.findElement(By.xpath("//button[@class=\"btn btn-primary mt-2\"]"));
 
-		
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		
-		jse.executeScript("document.querySelector('.dropdown-menu').scrollBy(0,100)");
-		
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
 
-		buttonelemennt.click();
-		
-		String actualurl="https://aaryaadigital.com/LanguageData/26";
-		
-		String expectedurl = driver.getCurrentUrl();
-		
-		if(actualurl.equals(expectedurl))
-		{
-			System.out.println("Match url");
+			jse.executeScript("document.querySelector('.dropdown-menu').scrollBy(0,100)");
+
+			buttonelemennt.click();
+
+			String actualurl = "https://aaryaadigital.com/LanguageData/26";
+
+			String expectedurl = driver.getCurrentUrl();
+
+			if (actualurl.equals(expectedurl)) {
+				System.out.println("Match url");
+			}
 		}
-		}
-	
-		catch(Exception e)
-		{
+
+		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-		
 
-	
-
-	@Test()
+	@Test
 	public void javaExecutor() throws InterruptedException {
 		JavascriptExecutor jsescroll = (JavascriptExecutor) driver;
 		jsescroll.executeScript("window.scrollBy(0,500)");
@@ -94,6 +88,8 @@ try {
 
 	@Test
 	public void clickonprofile() throws InterruptedException {
+		Thread.sleep(6000);
+
 		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
 
 		clickonprofile.click();
@@ -145,7 +141,7 @@ try {
 
 	}
 
-	@Test()
+	@Test
 	public void searchvideo() throws InterruptedException {
 		WebElement clickOnSearch = driver.findElement(By.xpath("//div[@class=\"search-button\"]"));
 		clickOnSearch.click();
@@ -163,7 +159,7 @@ try {
 		Thread.sleep(7000);
 	}
 
-	@Test()
+	@Test
 	public void wrongcreditanals() throws InterruptedException {
 
 		WebElement clickonloginbutton = driver.findElement(By.xpath("//button[@class=\"logbtn\"]"));
@@ -193,7 +189,7 @@ try {
 
 	}
 
-	@Test(enabled=false)
+	@Test()
 	public void watchvideo() throws InterruptedException {
 
 		WebElement clicksearchbutton = driver.findElement(By.xpath("//div[@class=\"search-button\"]"));
@@ -225,38 +221,39 @@ try {
 		}
 
 		WebElement watchnow = driver.findElement(By.xpath("//button[@class=\"sc-fPXMVe bgqGRl\"]"));
-
+		
 		watchnow.click();
 
-		Thread.sleep(4000);
+		Thread.sleep(12000);
 
 	}
 
 	@Test()
 	public void footerbutton() throws InterruptedException {
 		try {
-		Thread.sleep(20000);
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-		Thread.sleep(6000);
+			Thread.sleep(20000);
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+			Thread.sleep(6000);
 
-		WebElement TermsAndCondition = driver.findElement(By.xpath("//span[normalize-space()='Terms and Conditions']"));
+			WebElement TermsAndCondition = driver
+					.findElement(By.xpath("//span[normalize-space()='Terms and Conditions']"));
 
-		TermsAndCondition.click();
+			TermsAndCondition.click();
 
-		if (TermsAndCondition.isDisplayed()) {
-			
-			System.out.println("Element is click");
+			if (TermsAndCondition.isDisplayed()) {
 
-		} else {
-			System.out.println("It is not disabled");
-		}
+				System.out.println("Element is click");
+
+			} else {
+				System.out.println("It is not disabled");
+			}
 		} catch (Exception e) {
 			System.out.println("Error while scrolling: " + e.getMessage());
 		}
 	}
 
-	@Test
+	@Test()
 	public void withoutloginDetailedpage() throws InterruptedException {
 
 		WebElement clickonTab = driver.findElement(By.xpath("//a[@href=\"/Devotional/16\"]"));
@@ -305,7 +302,7 @@ try {
 		}
 	}
 
-	@Test
+	@Test()
 	public void mailId() throws InterruptedException {
 
 		WebElement clickonlogin = driver.findElement(By.xpath("//a[@class=\"logButton\"]"));
@@ -341,9 +338,10 @@ try {
 		}
 	}
 
-	@Test
+	@Test()
 	public void logout() throws InterruptedException {
-		
+
+
 		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
 
 		clickonprofile.click();
@@ -355,15 +353,12 @@ try {
 
 		WebElement logout = driver.findElement(By.xpath("//button[@class=\"removebtn\"]"));
 		logout.click();
-		
+
 		Thread.sleep(3000);
-
-		
-
 
 	}
 
-	@Test
+	@Test()
 	public void Buyrentvideo() throws InterruptedException {
 
 		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
@@ -385,34 +380,81 @@ try {
 		clickonwatchnow.click();
 
 	}
-	
-	@Test
+
+	@Test()
 	public void viewAll() throws InterruptedException {
-		
-		
+
 		Thread.sleep(4000);
 		WebElement clickonviewall = driver.findElement(By.xpath("//a[@href=\"/View/home/trending-movies/311\"]"));
 
 		clickonviewall.click();
-		
+
 		String checkviewall = driver.getCurrentUrl();
-		String expectedviewlallurl="https://aaryaadigital.com/View/home/trending-movies/311";
-		
-		if(checkviewall.equals(expectedviewlallurl))
-		{
+		String expectedviewlallurl = "https://aaryaadigital.com/View/home/trending-movies/311";
+
+		if (checkviewall.equals(expectedviewlallurl)) {
 			System.err.println("expected url or actual url same.");
-			
-		}
-		else {
+
+		} else {
 			System.out.println("Not Both same url");
 		}
-		
+
 		driver.quit();
 
 	}
 
+	@Test()
+	public void clickOnFilterButtonandScrollbucket() throws InterruptedException {
+
+		WebElement clickonlogin = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='logButton']")));
+		clickonlogin.click();
+
+		WebElement enterphoneNumber = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='mobile']")));
+		enterphoneNumber.sendKeys("8920689888");
+
+		WebElement clickOTP = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
+		clickOTP.click();
+
+		WebElement Otp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='otp']")));
+		Otp.sendKeys("1234");
+
+		WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
+		submit.click();
+
+		Thread.sleep(6000);
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		Thread.sleep(6000);
+
+		WebElement TermsAndCondition = driver.findElement(By.xpath("//span[normalize-space()='Terms and Conditions']"));
+
+		TermsAndCondition.click();
+		Thread.sleep(5000);
+
+		// Ensure the element is clickable and displayed
+		if (TermsAndCondition.isDisplayed()) {
+			System.out.println("Element is clickable");
+		} else {
+			System.out.println("It is not clickable");
+		}
+
+		// Wait for the page to load properly
+		Thread.sleep(6000);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		jse.executeScript("document.querySelector('.support').scrollBy(0,100)");
+
+		Thread.sleep(6000);
+	}
+
 	@AfterMethod
-	public void quit() {
+	public void quit() throws InterruptedException {
+	
+
 		driver.quit();
 	}
 

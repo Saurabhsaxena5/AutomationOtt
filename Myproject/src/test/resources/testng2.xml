@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<test name="clickfilterbutton">
+	<test name="clickfilterbutton" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -11,7 +11,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="clickonprofile ">
+	<test name="clickonprofile " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -21,7 +21,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="verifyurl">
+	<test name="verifyurl" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -41,7 +41,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="searchvideo">
+	<test name="searchvideo" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -51,7 +51,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="wrongcreditanals ">
+	<test name="wrongcreditanals " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -61,7 +61,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="watchvideo ">
+	<test name="watchvideo " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -71,7 +71,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="footerbutton ">
+	<test name="footerbutton " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -81,7 +81,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="withoutloginDetailedpage ">
+	<test name="withoutloginDetailedpage " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -91,7 +91,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="mailId ">
+	<test name="mailId " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -127,6 +127,16 @@
 				<methods>
 					<include name="login" />
 					<include name="viewAll" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name=" click on Footer button and scroll the bucket">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="clickOnFilterButtonandScrollbucket" />
 				</methods>
 			</class>
 		</classes>
