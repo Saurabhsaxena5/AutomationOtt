@@ -45,4 +45,15 @@
       </class> <!-- Selinium.SeliniumXA -->
     </classes>
   </test> <!-- Click on ViewAll  (failed) -->
+  <test thread-count="5" name=" click on Footer button and scroll the bucket(failed)">
+    <classes>
+      <class name="Selinium.SeliniumXA">
+        <methods>
+          <include name="clickOnFilterButtonandScrollbucket"/>
+          <include name="quit"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Selinium.SeliniumXA -->
+    </classes>
+  </test> <!--  click on Footer button and scroll the bucket(failed) -->
 </suite> <!-- Failed suite [Suite] -->

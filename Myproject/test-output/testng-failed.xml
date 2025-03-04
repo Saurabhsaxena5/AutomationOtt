@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ParellelExecution.Program1">
+      <class name="Listener.Program1">
         <methods>
-          <include name="Login" invocation-numbers="1 2 3 4"/>
+          <include name="Test4"/>
+          <include name="Test5"/>
         </methods>
-      </class> <!-- ParellelExecution.Program1 -->
+      </class> <!-- Listener.Program1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

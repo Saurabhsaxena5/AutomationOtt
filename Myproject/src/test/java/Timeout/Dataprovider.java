@@ -1,10 +1,10 @@
-package ParellelExecution;
+package Timeout;
 
 import org.testng.annotations.DataProvider;
 
 public class Dataprovider {
 
-	@DataProvider(name="login")
+	@DataProvider(name="login",parallel=true)
     public Object[][] getData() {
     		Object[][] data=new Object[][] {
             {"8920689888", "1234"},  // Test case 1
@@ -15,8 +15,7 @@ public class Dataprovider {
             {"8920689888", "Saur"}
             };
             
-           
-            return  data;
+             return  data;
         }
         
     }
