@@ -30,6 +30,7 @@
           <include name="Buyrentvideo"/>
           <include name="quit"/>
           <include name="setup"/>
+          <include name="login"/>
         </methods>
       </class> <!-- Selinium.SeliniumXA -->
     </classes>
@@ -40,6 +41,7 @@
         <methods>
           <include name="quit"/>
           <include name="setup"/>
+          <include name="login"/>
           <include name="viewAll"/>
         </methods>
       </class> <!-- Selinium.SeliniumXA -->
@@ -52,6 +54,7 @@
           <include name="clickOnFilterButtonandScrollbucket"/>
           <include name="quit"/>
           <include name="setup"/>
+          <include name="login"/>
         </methods>
       </class> <!-- Selinium.SeliniumXA -->
     </classes>

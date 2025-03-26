@@ -388,10 +388,11 @@ public class SeliniumXA {
 		WebElement clickonviewall = driver.findElement(By.xpath("//a[@href=\"/View/home/trending-movies/311\"]"));
 
 		clickonviewall.click();
-
+		Thread.sleep(10000);
+		
 		String checkviewall = driver.getCurrentUrl();
 		String expectedviewlallurl = "https://aaryaadigital.com/View/home/trending-movies/311";
-
+			
 		if (checkviewall.equals(expectedviewlallurl)) {
 			System.err.println("expected url or actual url same.");
 

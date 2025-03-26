@@ -25,6 +25,7 @@ public class AaryaDigital {
 	@Test(groups = { "smoke" })
 	public void login() throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		driver.get("https://aaryaadigital.com/");
@@ -716,8 +717,7 @@ public class AaryaDigital {
 		submit.click();
 		Thread.sleep(6000);
 
-		WebElement clcikonsubscriptionpage = driver
-				.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
+		WebElement clcikonsubscriptionpage = driver.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
 		clcikonsubscriptionpage.click();
 
 		WebElement entercouponcode = driver.findElement(By.xpath("//input[@placeholder=\"Enter coupon code...\"]"));
