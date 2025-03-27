@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selinium.SeliniumXA">
+      <class name="Selinium.OnlyForcheckingPurpose">
         <methods>
-          <include name="quit"/>
           <include name="setup"/>
-          <include name="viewAll"/>
         </methods>
-      </class> <!-- Selinium.SeliniumXA -->
+      </class> <!-- Selinium.OnlyForcheckingPurpose -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

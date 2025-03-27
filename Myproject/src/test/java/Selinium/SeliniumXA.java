@@ -1,6 +1,8 @@
 package Selinium;
 
 import java.time.Duration;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -29,6 +31,7 @@ public class SeliniumXA {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://aaryaadigital.com/");
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
+		
 	}
 
 	@Test
@@ -221,7 +224,7 @@ public class SeliniumXA {
 		}
 
 		WebElement watchnow = driver.findElement(By.xpath("//button[@class=\"sc-fPXMVe bgqGRl\"]"));
-		
+
 		watchnow.click();
 
 		Thread.sleep(12000);
@@ -341,7 +344,6 @@ public class SeliniumXA {
 	@Test()
 	public void logout() throws InterruptedException {
 
-
 		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
 
 		clickonprofile.click();
@@ -361,7 +363,7 @@ public class SeliniumXA {
 	@Test()
 	public void Buyrentvideo() throws InterruptedException {
 
-		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
+		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class=\"dropdown\"][2]"));
 
 		clickonprofile.click();
 		Thread.sleep(3000);
@@ -389,10 +391,10 @@ public class SeliniumXA {
 
 		clickonviewall.click();
 		Thread.sleep(10000);
-		
+
 		String checkviewall = driver.getCurrentUrl();
 		String expectedviewlallurl = "https://aaryaadigital.com/View/home/trending-movies/311";
-			
+
 		if (checkviewall.equals(expectedviewlallurl)) {
 			System.err.println("expected url or actual url same.");
 
@@ -407,22 +409,7 @@ public class SeliniumXA {
 	@Test()
 	public void clickOnFilterButtonandScrollbucket() throws InterruptedException {
 
-		WebElement clickonlogin = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='logButton']")));
-		clickonlogin.click();
-
-		WebElement enterphoneNumber = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='mobile']")));
-		enterphoneNumber.sendKeys("8920689888");
-
-		WebElement clickOTP = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-		clickOTP.click();
-
-		WebElement Otp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='otp']")));
-		Otp.sendKeys("1234");
-
-		WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-		submit.click();
+		
 
 		Thread.sleep(6000);
 
@@ -452,9 +439,84 @@ public class SeliniumXA {
 		Thread.sleep(6000);
 	}
 
+	@Test
+	public void clickonViewAllButtonCheckDataIsvisible() throws InterruptedException {
+
+		Thread.sleep(4000);
+		WebElement clickonviewall = driver.findElement(By.xpath("//a[@href=\"/View/home/trending-movies/311\"]"));
+
+		clickonviewall.click();
+		Thread.sleep(10000);
+
+		String checkviewall = driver.getCurrentUrl();
+		String expectedviewlallurl = "https://aaryaadigital.com/View/home/trending-movies/311";
+
+		if (checkviewall.equals(expectedviewlallurl)) {
+			System.err.println("expected url or actual url same.");
+
+		} else {
+			System.out.println("Not Both same url");
+		}
+
+		WebElement Datacheck = driver.findElement(By.xpath("//div[@class=\"view-screen\"]"));
+
+		if (Datacheck.isDisplayed()) {
+			System.out.println("Data check");
+		} else {
+			System.out.println("Test case is failed");
+		}
+
+	}
+	@Test
+	public void clickonplaystoreButton() throws InterruptedException {
+		Thread.sleep(6000);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		Thread.sleep(6000);
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		WebElement clickonplaystore = driver.findElement(By.xpath("//div[@class=\"icon\"]//a[@class=\"sc-imWYAI gPjsGN\"][1]"));
+		clickonplaystore.click();
+		Thread.sleep(4000);
+		String currentId = driver.getWindowHandle();
+		System.out.println(currentId);
+		
+		Set<String> Puralwindow = driver.getWindowHandles();
+		System.out.println(Puralwindow);
+		
+		Thread.sleep(4000);
+			
+		for(String windowHandle :Puralwindow) {
+			if(!windowHandle.equals(Puralwindow)) {
+				driver.switchTo().window(windowHandle);
+			}
+		}
+				
+				String checkwindowHandlurl = driver.getCurrentUrl();
+				System.out.println(checkwindowHandlurl);
+			
+				WebElement checkTheNameOfTheApp = driver.findElement(By.xpath("//h1[@class=\"product-header__title app-header__title\"]"));
+				checkTheNameOfTheApp.getText();
+				System.out.println(checkTheNameOfTheApp);
+				
+				
+				driver.quit();
+
+}
+	@Test
+	public void filterButton() throws InterruptedException {
+	
+		
+		Thread.sleep(4000);
+		
+		
+		
+	}
+
+	
+
 	@AfterMethod
 	public void quit() throws InterruptedException {
-	
 
 		driver.quit();
 	}

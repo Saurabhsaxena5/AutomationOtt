@@ -3,9 +3,9 @@
 <suite name="Suite ">
 	<test name="login ">
 		<classes>
-			<class name="Selinium.AaryaDigital">
+			<class name="Selinium.AaryaDigital ">
 				<methods>
-					<include name="login" />
+					<include name="login"  />
 				</methods>
 			</class>
 		</classes>
@@ -106,6 +106,24 @@
 				<methods>
 					<include name="clickonfilter" />
 					<include name="clickfilterbutton" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="clickfilterbutton ">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="clickonViewAllButtonCheckDataIsvisible " />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="clickfilterbutton ">
+		<classes>
+			<class name="Selinium.AaryaDigital">
+				<methods>
+					<include name="viewAll " />
 				</methods>
 			</class>
 		</classes>

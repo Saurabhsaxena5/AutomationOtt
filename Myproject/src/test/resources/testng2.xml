@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<test name="clickfilterbutton" enabled="false">
+	<test name="clickfilterbutton" enabled="false" >
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -31,7 +31,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="subscription">
+	<test name="subscription" enabled="false" >
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -41,7 +41,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="searchvideo" enabled="false">
+	<test name="searchvideo" enabled="false" >
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -61,7 +61,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="watchvideo " enabled="false">
+	<test name="watchvideo " enabled="false" >
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -71,7 +71,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="footerbutton " enabled="false">
+	<test name="footerbutton " enabled="false" >
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -101,7 +101,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="logout ">
+	<test name="logout " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -111,7 +111,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Buyrentvideo  ">
+	<test name="Buyrentvideo  " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -121,7 +121,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Click on ViewAll  ">
+	<test name="Click on ViewAll " enabled="false" >
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -131,12 +131,32 @@
 			</class>
 		</classes>
 	</test>
-	<test name=" click on Footer button and scroll the bucket">
+	<test name=" click on Footer button and scroll the bucket" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
 					<include name="login" />
 					<include name="clickOnFilterButtonandScrollbucket" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Check on Playstore  button is workable" enabled="true">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="clickonplaystoreButton"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Check on Playstore  button is workable" enabled="true">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="clickonplaystoreButton"/>
 				</methods>
 			</class>
 		</classes>
