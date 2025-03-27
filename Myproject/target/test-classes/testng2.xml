@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<test name="clickfilterbutton" enabled="false" >
+	<test name="clickfilterbutton" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -31,7 +31,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="subscription" enabled="false" >
+	<test name="subscription" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -41,7 +41,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="searchvideo" enabled="false" >
+	<test name="searchvideo" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -61,7 +61,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="watchvideo " enabled="false" >
+	<test name="watchvideo " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -71,7 +71,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="footerbutton " enabled="false" >
+	<test name="footerbutton " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -121,7 +121,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Click on ViewAll " enabled="false" >
+	<test name="Click on ViewAll " enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -141,12 +141,12 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Check on Playstore  button is workable" enabled="true">
+	<test name="Check on Playstore  button is workable" enabled="false">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
 					<include name="login" />
-					<include name="clickonplaystoreButton"/>
+					<include name="clickonplaystoreButton" />
 				</methods>
 			</class>
 		</classes>
@@ -156,7 +156,7 @@
 			<class name="Selinium.SeliniumXA">
 				<methods>
 					<include name="login" />
-					<include name="clickonplaystoreButton"/>
+					<include name="filterButton" />
 				</methods>
 			</class>
 		</classes>

@@ -506,8 +506,25 @@ public class SeliniumXA {
 	@Test
 	public void filterButton() throws InterruptedException {
 	
-		
 		Thread.sleep(4000);
+		WebElement clickonfilterButton = driver.findElement(By.xpath("//div[@class=\"dropdown\"][1]"));
+		clickonfilterButton.click();
+		
+			WebElement Value7= driver.findElement(By.xpath("//input[@value=\"7\"]"));
+			Value7.click();
+			
+			WebElement Value6= driver.findElement(By.xpath("//input[@value=\"6\"]"));
+			Value6.click();
+		
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			js.executeScript("document.querySelector('.dropdown-menu.show').scrollTop += 300");
+
+			Thread.sleep(6000);
+			
+			WebElement clickOnSubmitButton = driver.findElement(By.xpath("//button[@class=\"btn btn-primary mt-2\"]"));
+			clickOnSubmitButton.click();
+			
 		
 		
 		

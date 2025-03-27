@@ -55,15 +55,15 @@ public class OnlyForcheckingPurpose {
 			
 			WebElement Value6= driver.findElement(By.xpath("//input[@value=\"6\"]"));
 			Value6.click();
-			WebElement Value5= driver.findElement(By.xpath("//input[@value=\"5\"]"));
-			Value5.click();
-			
-			WebElement Value4= driver.findElement(By.xpath("//input[@value=\"4\"]"));
-			Value4.click();
-			
-			
-			
 		
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			js.executeScript("document.querySelector('.dropdown-menu.show').scrollTop += 300");
+
+			Thread.sleep(6000);
+			
+			WebElement clickOnSubmitButton = driver.findElement(By.xpath("//button[@class=\"btn btn-primary mt-2\"]"));
+			clickOnSubmitButton.click();
 			
 			}
 
