@@ -515,6 +515,7 @@ public class SeliniumXA {
 			
 			WebElement Value6= driver.findElement(By.xpath("//input[@value=\"6\"]"));
 			Value6.click();
+			Thread.sleep(6000);
 		
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -525,7 +526,7 @@ public class SeliniumXA {
 			WebElement clickOnSubmitButton = driver.findElement(By.xpath("//button[@class=\"btn btn-primary mt-2\"]"));
 			clickOnSubmitButton.click();
 			
-		
+			Thread.sleep(6000);
 		
 		
 	}

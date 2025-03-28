@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<test name="clickfilterbutton" enabled="false">
+	<test name="clickfilterbutton" enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -11,7 +11,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="clickonprofile " enabled="false">
+	<test name="clickonprofile " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -21,7 +21,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="verifyurl" enabled="false">
+	<test name="verifyurl" enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -31,7 +31,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="subscription" enabled="false">
+	<test name="subscription" enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -41,7 +41,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="searchvideo" enabled="false">
+	<test name="searchvideo" enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -51,7 +51,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="wrongcreditanals " enabled="false">
+	<test name="wrongcreditanals " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -61,7 +61,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="watchvideo " enabled="false">
+	<test name="watchvideo " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -71,7 +71,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="footerbutton " enabled="false">
+	<test name="footerbutton " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -81,7 +81,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="withoutloginDetailedpage " enabled="false">
+	<test name="withoutloginDetailedpage " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -91,7 +91,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="mailId " enabled="false">
+	<test name="mailId " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -101,7 +101,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="logout " enabled="false">
+	<test name="logout " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -111,7 +111,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Buyrentvideo  " enabled="false">
+	<test name="Buyrentvideo  " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -121,7 +121,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Click on ViewAll " enabled="false">
+	<test name="Click on ViewAll " enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -131,7 +131,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name=" click on Footer button and scroll the bucket" enabled="false">
+	<test name=" click on Footer button and scroll the bucket" enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
@@ -141,12 +141,22 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Check on Playstore  button is workable" enabled="false">
+	<test name="Check on Playstore  button is workable" enabled="true">
 		<classes>
 			<class name="Selinium.SeliniumXA">
 				<methods>
 					<include name="login" />
 					<include name="clickonplaystoreButton" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Check on Playstore  button is workable" enabled="true">
+		<classes>
+			<class name="Selinium.SeliniumXA">
+				<methods>
+					<include name="login" />
+					<include name="filterButton" />
 				</methods>
 			</class>
 		</classes>
