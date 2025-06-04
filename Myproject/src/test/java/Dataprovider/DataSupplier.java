@@ -12,12 +12,7 @@ public class DataSupplier {
 				"Anil",
 				"Kranti",
 				
-			
-			
-			
-			
-		
-	};
+		};
 		return data;
 
 }
