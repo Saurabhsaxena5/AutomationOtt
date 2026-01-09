@@ -1,461 +1,257 @@
 package Selinium;
 
 import java.time.Duration;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WebDriver.Navigation;
+import java.util.Set;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
+import org.testng.annotations.*;
 
 public class SeliniumXA {
 
-	WebDriver driver;
-	WebDriverWait wait;
+    WebDriver driver;
+    WebDriverWait wait;
 
-	@BeforeMethod()
-	public void setup() throws InterruptedException {
-		// Initialize WebDriver
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://aaryaadigital.com/");
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
-	}
+    @BeforeMethod
+    public void setup() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.get("https://chull.tv/");
+    }
 
-	@Test
-	public void login() throws InterruptedException {
-		WebElement clickonlogin = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='logButton']")));
-		clickonlogin.click();
+    @AfterMethod
+    public void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
-		WebElement enterphoneNumber = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='mobile']")));
+    // Test Case 1: Login with phone number
+    @Test
+	public void loginWithPhoneNumber() throws InterruptedException {
+		driver.findElement(By.xpath("//a[@href=\"/login\"]")).click();
+		Thread.sleep(2000);
+
+		WebElement enterphoneNumber = driver.findElement(By.xpath("//input[@placeholder=\"Mobile Number\"]"));
 		enterphoneNumber.sendKeys("8920689888");
-
-		WebElement clickOTP = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-		clickOTP.click();
-
-		WebElement Otp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='otp']")));
-		Otp.sendKeys("1234");
-
-		WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-		submit.click();
-
-		Thread.sleep(6000);
-	}
-
-	@Test
-	public void clickfilterbutton() throws InterruptedException {
-		try {
-			WebElement buttonelemennt = driver.findElement(By.xpath("//button[@class=\"btn btn-primary mt-2\"]"));
-
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
-
-			jse.executeScript("document.querySelector('.dropdown-menu').scrollBy(0,100)");
-
-			buttonelemennt.click();
-
-			String actualurl = "https://aaryaadigital.com/LanguageData/26";
-
-			String expectedurl = driver.getCurrentUrl();
-
-			if (actualurl.equals(expectedurl)) {
-				System.out.println("Match url");
-			}
-		}
-
-		catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	@Test
-	public void javaExecutor() throws InterruptedException {
-		JavascriptExecutor jsescroll = (JavascriptExecutor) driver;
-		jsescroll.executeScript("window.scrollBy(0,500)");
-		Thread.sleep(6000);
-
-	}
-
-	@Test
-	public void clickonprofile() throws InterruptedException {
-		Thread.sleep(6000);
-
-		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
-
-		clickonprofile.click();
-		Thread.sleep(6000);
-
-		WebElement clickprofile = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]/a[2]"));
-
-		clickprofile.click();
-		Thread.sleep(6000);
-
-		WebElement clickoneditbutton = driver.findElement(By.xpath("//button[@class=\"edit-button\"]"));
-		clickoneditbutton.click();
-
-		WebElement clearData = driver.findElement(By.xpath("//input[@class=\"input-name\"]"));
-		Thread.sleep(6000);
-		clearData.clear();
-		Thread.sleep(6000);
-		clearData.sendKeys("Hey this update message");
-		Thread.sleep(6000);
-
-		driver.findElement(By.xpath("//button[@class=\"edit-button\"]")).click();
-		Thread.sleep(6000);
-
-	}
-
-	@Test
-	public void verifyurl() throws InterruptedException {
-		String url1 = driver.getCurrentUrl();
-		Thread.sleep(6000);
-		System.out.println("The url of the page source is:" + url1);
-		Thread.sleep(6000);
-	}
-
-	@Test
-	public void subscription() throws InterruptedException {
-
-		WebElement clickonsubscription = driver.findElement(By.xpath("//img[@class=\"subscription-logo\"]"));
-		clickonsubscription.click();
+		WebElement clickOnSendOtp = driver.findElement(By.xpath("//button[normalize-space(.)=\"Send OTP\"]"));
 		Thread.sleep(2000);
-
-		WebElement element = driver.findElement(By.xpath("//div[@class=\"alert alert-success\"]"));
-
-		if (element.isDisplayed()) {
-			System.out.println("User already have a subscription");
-		} else {
-			System.out.println("User buy a subscription");
-		}
-		Thread.sleep(6000);
-
+		clickOnSendOtp.click();
 	}
 
-	@Test
-	public void searchvideo() throws InterruptedException {
-		WebElement clickOnSearch = driver.findElement(By.xpath("//div[@class=\"search-button\"]"));
-		clickOnSearch.click();
+    // Test Case 2: Filter button click
+    @Test
+    public void filterButtonClickTest() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('.dropdown-menu').scrollBy(0,100)");
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn btn-primary mt-2']")));
+        button.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://aaryaadigital.com/LanguageData/26", "URL mismatch");
+    }
 
-		Thread.sleep(4000);
+    // Test Case 3: Profile update
+    @Test
+    public void updateProfileTest() {
+        
+        WebElement profile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='Navbar']//div[3]//img[1]")));
+        profile.click();
+        WebElement profileOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='dropdown-menu show']/a[2]")));
+        profileOption.click();
 
-		// Locate the search input and enter the search term
-		WebElement enter = driver
-				.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
-		enter.sendKeys("Meri jaan Tiranga");
-		Thread.sleep(4000);
+        WebElement editBtn = driver.findElement(By.xpath("//button[@class='edit-button']"));
+        editBtn.click();
+        WebElement input = driver.findElement(By.xpath("//input[@class='input-name']"));
+        input.clear();
+        input.sendKeys("Hey this update message");
+        driver.findElement(By.xpath("//button[@class='edit-button']")).click();
+    }
 
-		// Submit the search
-		enter.sendKeys(Keys.ENTER);
-		Thread.sleep(7000);
-	}
+    // Test Case 4: Verify current URL
+    @Test
+    public void verifyCurrentUrlTest() {
+        String url = driver.getCurrentUrl();
+        
+         String expected = "https://chull.tv/";
+        Assert.assertEquals(url,expected);
+        
+      if(url.equals(expected)) {
+    	  System.out.println("True ");
+      }else {
+    	  System.out.println("url mismatch");
+      }
+    }
 
-	@Test
-	public void wrongcreditanals() throws InterruptedException {
+    // Test Case 5: Subscription check
+    @Test
+    public void subscriptionTest() {
+        WebElement subscriptionIcon = driver.findElement(By.xpath("//img[@class='subscription-logo']"));
+        subscriptionIcon.click();
+        WebElement alertBox = driver.findElement(By.xpath("//div[@class='alert alert-success']"));
+        Assert.assertTrue(alertBox.isDisplayed(), "Subscription message not displayed");
+    }
 
-		WebElement clickonloginbutton = driver.findElement(By.xpath("//button[@class=\"logbtn\"]"));
-		clickonloginbutton.click();
-
-		WebElement enterphoneNumber = driver.findElement(By.xpath("//input[@id=\"mobile\"]"));
-		enterphoneNumber.sendKeys("8920689888");
-		WebElement clickOTP = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
-		clickOTP.click();
-		WebElement Otp = driver.findElement(By.xpath("//input[@name=\"otp\"]"));
-		Otp.sendKeys("1235");
-
-		WebElement submit = driver.findElement(By.xpath("//button[@type=\"submit\"]"));
-		submit.click();
-
-		Thread.sleep(2000);
-
-		String actualmessage = driver.findElement(By.xpath("//button[@type=\"submit\"]")).getText();
-		String expectedmessage = "Incorrect OTP entered. Please enter again.";
-
-		if (actualmessage.equals(expectedmessage)) {
-
-			System.out.println("Actual message: [" + actualmessage + "]");
-		} else {
-			System.out.println("Not work");
-		}
-
-	}
-
-	@Test()
-	public void watchvideo() throws InterruptedException {
-
-		WebElement clicksearchbutton = driver.findElement(By.xpath("//div[@class=\"search-button\"]"));
-		clicksearchbutton.click();
-
-		WebElement enterSearch = driver
-				.findElement(By.xpath("//div[@class=\"search-container\"]//input[@class=\"search-input visible\"]"));
-		enterSearch.sendKeys("Meri jaan Tiranga");
-		Thread.sleep(2000);
-		enterSearch.sendKeys(Keys.ENTER);
-
-		// Click on the video
-		WebElement clickOnVideo = driver.findElement(By.xpath("//img[@alt=\"Meri Jaan Tiranga Hai Trailer\"]"));
-		clickOnVideo.click();
-
-		// Scroll down using JavaScript Executor
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-
-		// Wait for the page to load
+    // Test Case 6: Search video
+    @Test
+	public void searchVideoTest() throws InterruptedException {
+		driver.findElement(By.xpath("//a[@href='/search']")).click();
 		Thread.sleep(3000);
-
-		// Perform scroll and validate
-		try {
-			jse.executeScript("window.scrollBy(0,300);");
-			Long scrollPosition = (Long) jse.executeScript("return window.pageYOffset;");
-			System.out.println("Scroll position after scrolling: " + scrollPosition);
-		} catch (Exception e) {
-			System.out.println("Error while scrolling: " + e.getMessage());
-		}
-
-		WebElement watchnow = driver.findElement(By.xpath("//button[@class=\"sc-fPXMVe bgqGRl\"]"));
-		
-		watchnow.click();
-
-		Thread.sleep(12000);
-
-	}
-
-	@Test()
-	public void footerbutton() throws InterruptedException {
-		try {
-			Thread.sleep(20000);
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
-			jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-			Thread.sleep(6000);
-
-			WebElement TermsAndCondition = driver
-					.findElement(By.xpath("//span[normalize-space()='Terms and Conditions']"));
-
-			TermsAndCondition.click();
-
-			if (TermsAndCondition.isDisplayed()) {
-
-				System.out.println("Element is click");
-
-			} else {
-				System.out.println("It is not disabled");
-			}
-		} catch (Exception e) {
-			System.out.println("Error while scrolling: " + e.getMessage());
-		}
-	}
-
-	@Test()
-	public void withoutloginDetailedpage() throws InterruptedException {
-
-		WebElement clickonTab = driver.findElement(By.xpath("//a[@href=\"/Devotional/16\"]"));
-
-		clickonTab.click();
-		Thread.sleep(2000);
-		String actualpage = driver.getCurrentUrl();
-
-		String expectedurl = driver.getCurrentUrl();
-		Thread.sleep(2000);
-		if (actualpage.equals(expectedurl)) {
-			System.out.println("The actual page is working:" + actualpage);
-		} else {
-			System.out.println("Dismatchurl");
-		}
-
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,500)");
-		Thread.sleep(2000);
-		WebElement clickonVideo = driver
-				.findElement(By.xpath("//div[@class='scroll-container']//div[@id='custom-div-2']"));
-		clickonVideo.click();
-		Thread.sleep(2000);
-		String gettext = driver.findElement(By.xpath("//h3[@class=\"detailHeading\"]")).getText();
-		String actual = "Ahiya Maiya Pujwa Ke Beriya";
-		Thread.sleep(2000);
-		if (gettext.equals(actual)) {
-			System.out.println("The Name of the video is :" + actual);
-		} else {
-			System.out.println("Failed");
-
-		}
-
-		Navigation nav = driver.navigate();
-		nav.back();
-		nav.back();
-		Thread.sleep(2000);
-
-		String actalpageurl = "https://aaryaadigital.com/";
-		String expectedpageurl = "https://aaryaadigital.com/";
-
-		if (actalpageurl.equals(expectedpageurl)) {
-			System.out.println("Test case is failed");
-		} else {
-			System.out.println("Failed");
-		}
-	}
-
-	@Test()
-	public void mailId() throws InterruptedException {
-
-		WebElement clickonlogin = driver.findElement(By.xpath("//a[@class=\"logButton\"]"));
-		clickonlogin.click();
-		Thread.sleep(2000);
-
-		WebElement clickonmail = driver.findElement(By.xpath("//button[normalize-space()='Login with Mail']"));
-		clickonmail.click();
-		Thread.sleep(2000);
-
-		WebElement sendmailid = driver.findElement(By.xpath("//input[@placeholder=\"Enter Email\"]"));
-		sendmailid.sendKeys("rajnish.kumar@unvii.com");
-
-		WebElement sendotp = driver.findElement(By.xpath("//button[normalize-space()='Send OTP']"));
-		sendotp.click();
-		Thread.sleep(2000);
-
-		WebElement enterotp = driver.findElement(By.xpath("//input[@class=\"otp-input form-control\"]"));
-		enterotp.sendKeys("1234");
-		Thread.sleep(2000);
-
-		WebElement verifyotp = driver.findElement(By.xpath("//button[normalize-space()='Verify OTP']"));
-		verifyotp.click();
-
-		String otpactual = verifyotp.getTagName();
-		String otpexpected = "Send OTP";
-		Thread.sleep(2000);
-
-		if (otpactual.equals(otpexpected)) {
-			System.out.println("Passed");
-		} else {
-			System.out.println("Failed");
-		}
-	}
-
-	@Test()
-	public void logout() throws InterruptedException {
-
-
-		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
-
-		clickonprofile.click();
+		WebElement searchBox = driver.findElement(By.xpath("//input[@type='text']"));
+		searchBox.sendKeys("Meri jaan Tiranga", Keys.ENTER);
 		Thread.sleep(3000);
-
-		WebElement clickonlogout = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]//div"));
-		clickonlogout.click();
-		Thread.sleep(3000);
-
-		WebElement logout = driver.findElement(By.xpath("//button[@class=\"removebtn\"]"));
-		logout.click();
-
-		Thread.sleep(3000);
-
-	}
-
-	@Test()
-	public void Buyrentvideo() throws InterruptedException {
-
-		WebElement clickonprofile = driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]"));
-
-		clickonprofile.click();
-		Thread.sleep(3000);
-
-		WebElement clickonrentbutton = driver.findElement(By.xpath("//div[@class=\"dropdown-menu show\"]//a[1]"));
-		clickonrentbutton.click();
-
-		WebElement clickonvideo = driver.findElement(By.xpath("//div[@class=\"card movie-card\"]"));
-
-		clickonvideo.click();
-
-		JavascriptExecutor jsescroll = (JavascriptExecutor) driver;
-		jsescroll.executeScript("window.scrollBy(0,300)");
-
-		WebElement clickonwatchnow = driver.findElement(By.xpath("//button[@class=\"sc-gFqAkR goYXOV\"]]"));
-		clickonwatchnow.click();
-
-	}
-
-	@Test()
-	public void viewAll() throws InterruptedException {
-
-		Thread.sleep(4000);
-		WebElement clickonviewall = driver.findElement(By.xpath("//a[@href=\"/View/home/trending-movies/311\"]"));
-
-		clickonviewall.click();
-
-		String checkviewall = driver.getCurrentUrl();
-		String expectedviewlallurl = "https://aaryaadigital.com/View/home/trending-movies/311";
-
-		if (checkviewall.equals(expectedviewlallurl)) {
-			System.err.println("expected url or actual url same.");
-
+		WebElement checkonvideo = driver.findElement(By.xpath("//img[@class=\"img-top\"]"));
+		if (checkonvideo.isDisplayed()) {
+			System.out.println("Video is visible");
 		} else {
-			System.out.println("Not Both same url");
+			System.out.println("video is not displayed");
 		}
 
-		driver.quit();
-
 	}
 
-	@Test()
-	public void clickOnFilterButtonandScrollbucket() throws InterruptedException {
+    // Test Case 7: Wrong credentials test
+    @Test
+    public void wrongOtpLoginTest() {
+        driver.findElement(By.xpath("//button[@class='logbtn']")).click();
+        driver.findElement(By.id("mobile")).sendKeys("8920689888");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.name("otp")).sendKeys("1235");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-		WebElement clickonlogin = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='logButton']")));
-		clickonlogin.click();
+        String buttonText = driver.findElement(By.xpath("//button[@type='submit']")).getText();
+        Assert.assertNotEquals(buttonText, "Incorrect OTP entered. Please enter again.");
+    }
 
-		WebElement enterphoneNumber = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='mobile']")));
-		enterphoneNumber.sendKeys("8920689888");
+    // Test Case 8: Play video
+    @Test
+    public void playVideoTest() {
+   
+        WebElement videoThumbnail = driver.findElement(By.xpath("//img[@alt='Meri Jaan Tiranga Hai Trailer']"));
+        videoThumbnail.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,300);");
+        WebElement watchNow = driver.findElement(By.xpath("//button[contains(text(), 'Watch Now')]"));
+        watchNow.click();
+        // Add assertion based on video player or playback check
+    }
 
-		WebElement clickOTP = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-		clickOTP.click();
+    // Test Case 9: Click footer links
+    @Test
+    public void footerTermsAndConditionsTest() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        WebElement termsLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Terms and Conditions']")));
+        termsLink.click();
+        Assert.assertTrue(termsLink.isDisplayed(), "Terms and Conditions link not working");
+    }
 
-		WebElement Otp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='otp']")));
-		Otp.sendKeys("1234");
+    // Test Case 10: Without login detailed page navigation
+    @Test
+    public void detailedPageWithoutLoginTest() {
+    	
+    	
+        WebElement devotionalTab = driver.findElement(By.xpath("//a[@href='/Devotional/16']"));
+        devotionalTab.click();
+        WebElement videoElement = driver.findElement(By.xpath("//div[@class='scroll-container']//div[@id='custom-div-2']"));
+        videoElement.click();
 
-		WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-		submit.click();
+        String videoTitle = driver.findElement(By.xpath("//h3[@class='detailHeading']")).getText();
+        Assert.assertEquals(videoTitle, "Ahiya Maiya Pujwa Ke Beriya", "Video title mismatch");
+    }
 
-		Thread.sleep(6000);
+    // Test Case 11: Login with mail
+    @Test
+    public void loginWithMailTest() throws InterruptedException {
+    	
+    	driver.findElement(By.xpath("//a[@href=\"/login\"]")).click();
+		Thread.sleep(2000);
 
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-		Thread.sleep(6000);
+        driver.findElement(By.xpath("//button[normalize-space(.)=\"Login with Email\"]")).click();
+       
+        driver.findElement(By.xpath("//input[@placeholder='Enter Email']")).sendKeys("rajnish.kumar@unvii.com");
+        driver.findElement(By.xpath("//button[normalize-space()='Send OTP']")).click();
+        driver.findElement(By.xpath("//input[@class='otp-input form-control']")).sendKeys("1234");
+        driver.findElement(By.xpath("//button[normalize-space()='Verify OTP']")).click();
+        // Assert here on the result of OTP validation
+    }
 
-		WebElement TermsAndCondition = driver.findElement(By.xpath("//span[normalize-space()='Terms and Conditions']"));
+    // Test Case 12: Logout
+    @Test
+    public void logoutTest() {
+       
+        driver.findElement(By.xpath("//div[@class='Navbar']//div[3]//img[1]")).click();
+        driver.findElement(By.xpath("//div[@class='dropdown-menu show']//div")).click();
+        driver.findElement(By.xpath("//button[@class='removebtn']")).click();
+        // Assert user redirected to login page or not
+    }
 
-		TermsAndCondition.click();
-		Thread.sleep(5000);
+    // Test Case 13: Buy or rent video
+    @Test
+    public void buyRentVideoTest() {
+       
+        driver.findElement(By.xpath("//div[@class='dropdown'][2]")).click();
+        driver.findElement(By.xpath("//div[@class='dropdown-menu show']//a[1]")).click();
+        driver.findElement(By.xpath("//div[@class='card movie-card']")).click();
 
-		// Ensure the element is clickable and displayed
-		if (TermsAndCondition.isDisplayed()) {
-			System.out.println("Element is clickable");
-		} else {
-			System.out.println("It is not clickable");
-		}
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,300)");
 
-		// Wait for the page to load properly
-		Thread.sleep(6000);
+        WebElement watchNow = driver.findElement(By.xpath("//button[contains(@class,'goYXOV')]"));
+        watchNow.click();
+        // Add assertion if needed
+    }
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+    // Test Case 14: View all button
+    @Test
+    public void viewAllTest() {
+        WebElement viewAll = driver.findElement(By.xpath("//a[@href='/View/home/trending-movies/311']"));
+        viewAll.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://aaryaadigital.com/View/home/trending-movies/311");
+        WebElement dataSection = driver.findElement(By.xpath("//div[@class='view-screen']"));
+        Assert.assertTrue(dataSection.isDisplayed(), "View all data section not visible");
+    }
 
-		jse.executeScript("document.querySelector('.support').scrollBy(0,100)");
+    // Test Case 15: Play Store button
+    @Test
+    public void playStoreButtonTest() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
-		Thread.sleep(6000);
-	}
+        WebElement playStoreLink = driver.findElement(By.xpath("//div[@class='icon']//a[1]"));
+        playStoreLink.click();
 
-	@AfterMethod
-	public void quit() throws InterruptedException {
-	
+        String mainWindow = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
 
-		driver.quit();
-	}
+        for (String win : allWindows) {
+            if (!win.equals(mainWindow)) {
+                driver.switchTo().window(win);
+                break;
+            }
+        }
 
+        String newUrl = driver.getCurrentUrl();
+        Assert.assertTrue(newUrl.contains("google.com"), "Not redirected to Play Store");
+
+        driver.close();
+        driver.switchTo().window(mainWindow);
+    }
+
+    // Test Case 16: Filter with values
+    @Test
+    public void filterValuesTest() {
+        WebElement dropdown = driver.findElement(By.xpath("//div[@class='dropdown'][1]"));
+        dropdown.click();
+
+        driver.findElement(By.xpath("//input[@value='7']")).click();
+        driver.findElement(By.xpath("//input[@value='6']")).click();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('.dropdown-menu.show').scrollTop += 300");
+
+        driver.findElement(By.xpath("//button[@class='btn btn-primary mt-2']")).click();
+        // Assert based on filter result
+    }
 }

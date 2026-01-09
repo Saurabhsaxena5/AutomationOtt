@@ -25,9 +25,10 @@ public class AaryaDigital {
 	@Test(groups = { "smoke" })
 	public void login() throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		
 
-		driver.get("https://aaryaadigital.com/");
+		driver.get("https://chull.com/");
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
 
@@ -54,7 +55,6 @@ public class AaryaDigital {
 	public void profile() throws InterruptedException {
 
 		ChromeDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		driver.get("https://aaryaadigital.com/");
 		driver.manage().window().maximize();
@@ -716,8 +716,7 @@ public class AaryaDigital {
 		submit.click();
 		Thread.sleep(6000);
 
-		WebElement clcikonsubscriptionpage = driver
-				.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
+		WebElement clcikonsubscriptionpage = driver.findElement(By.xpath("//div[@class='black-background']//div[2]//div[1]//div[2]//button[1]"));
 		clcikonsubscriptionpage.click();
 
 		WebElement entercouponcode = driver.findElement(By.xpath("//input[@placeholder=\"Enter coupon code...\"]"));
